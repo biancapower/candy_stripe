@@ -9,10 +9,13 @@
   </head>
 
   <body>
-    <ul class="hmenu">
-      <%= render 'devise/menu/registration_items' %>
-      <%= render 'devise/menu/login_items' %>
-    </ul>
+    <div class="container bg-light pt-2 pb-2 mb-5 mt-3">
+      <nav class="navbar">
+        <%= render 'devise/menu/registration_items' %>
+        <%= render 'devise/menu/login_items' %>
+      </nav>
+    </div>
+
     <%= yield %>
   </body>
 </html>
