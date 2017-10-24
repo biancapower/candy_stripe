@@ -3,9 +3,35 @@
 
   <% @items.each do |item| %>
     <hr>
-    <p><strong>Name: </strong><%= item.name %></p>
-    <p><strong>Price: $</strong><%= item.price %></p>
-    <button type="button" name="button">Buy</button>
+    <!-- <p><strong>Name: </strong><%#= item.name %></p>
+    <p><strong>Price: $</strong><%#= item.price %></p> -->
+    <!-- <button type="button" name="button">Buy</button> -->
+
+    <%#= form_tag charge_item_path(item) do %>
+    <%= form_with scope: :item, url: charge_item_path(item) do |form| %>
+      <article>
+        <% if flash[:error].present? %>
+          <div id="error_explanation">
+            <p><%= flash[:error] %></p>
+          </div>
+        <% end %>
+        <div class="field">
+          <p><strong>Name: </strong><%= item.name %></p>
+          <%= form.hidden_field :name, value: item.name %>
+        </div>
+        <div class="field">
+          <p><strong>Price: $</strong><%= item.price %></p>
+          <%= form.hidden_field :price, value: item.price %>
+        </div>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="A month's subscription"
+              data-amount="<%= item.price %>"
+              data-locale="auto"></script>
+    <% end %>
+
     <hr>
   <% end %>
 </div>
