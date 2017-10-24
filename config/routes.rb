@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   resources :purchases
-  resources :items
+
+  resources :items do
+    member do
+      post 'charge'
+    end
+  end
+
   devise_for :customers
+
   resources :charges
 
   root 'homepage#index'

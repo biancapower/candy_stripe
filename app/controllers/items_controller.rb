@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:charge, :show, :edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
@@ -19,6 +19,14 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+  end
+
+  def charge
+    # @item = Item.find(params[:id])
+    # @stripe_id = current_user.stripe_token
+
+    @name = @item.name
+    @amount = @item.price
   end
 
   # POST /items

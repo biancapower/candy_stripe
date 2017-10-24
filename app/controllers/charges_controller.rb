@@ -1,5 +1,8 @@
 class ChargesController < ApplicationController
+
   def new
+    # @items = Item.new
+    # @amount = @item.price
   end
 
   def create

@@ -1,0 +1,5 @@
+<% if customer_signed_in? %>
+  <%= link_to('Edit account', edit_customer_registration_path) %>
+<% else %>
+  <%= link_to('Sign up', new_customer_registration_path)  %>
+<% end %>
