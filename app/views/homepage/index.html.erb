@@ -1,0 +1,9 @@
+<h1>Dandy Candy</h1>
+
+<% @items.each do |item| %>
+  <hr>
+  <p><strong>Name: </strong><%= item.name %></p>
+  <p><strong>Price: $</strong><%= item.price %></p>
+  <button type="button" name="button">Buy</button>
+  <hr>
+<% end %>
