@@ -3,11 +3,7 @@
 
   <% @items.each do |item| %>
     <hr>
-    <!-- <p><strong>Name: </strong><%#= item.name %></p>
-    <p><strong>Price: $</strong><%#= item.price %></p> -->
-    <!-- <button type="button" name="button">Buy</button> -->
 
-    <%#= form_tag charge_item_path(item) do %>
     <%= form_with scope: :item, url: charges_path(item) do |form| %>
       <article>
         <% if flash[:error].present? %>
@@ -30,9 +26,19 @@
               data-description="Your order"
               data-amount="<%= item.price * 100 %>"
               data-currency="AUD"
-              data-locale="auto"></script>
+              data-locale="auto">
+      </script>
+
+
     <% end %>
 
     <hr>
   <% end %>
+
+  <%# if customer_signed_in? %>
+
+  <%# else %>
+
+  <%# end %>
+  
 </div>
