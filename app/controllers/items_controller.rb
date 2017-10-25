@@ -25,10 +25,10 @@ class ItemsController < ApplicationController
     # @item = Item.find(params[:id])
     # @stripe_id = current_user.stripe_token
 
-    puts "#{params[:item][:name]}"
+    # puts "#{params[:item][:name]}"
 
-    @name = @item.name
-    @amount = @item.price
+    # @name = @item.name
+    # @amount = @item.price
   end
 
   # POST /items

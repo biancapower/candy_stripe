@@ -1,13 +1,16 @@
 class ChargesController < ApplicationController
 
+  def index
+
+  end
+
   def new
-    # @items = Item.new
-    # @amount = @item.price
+
   end
 
   def create
     # Amount in cents
-    @amount = 500
+    @amount = @item.price
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
